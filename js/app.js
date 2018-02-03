@@ -1,9 +1,8 @@
-//create new angular module called todo app
-//inject dependencies into array
 angular.module('TodoApp', ['ngRoute', 'RouteControllers']);
 
 //define routes
 angular.module('TodoApp').config(function($locationProvider, $routeProvider) {
+	$locationProvider.html5Mode(true);
 
 //when click on home pickup the home.html and bind to the the HomeController
 	$routeProvider.when('/', {
@@ -14,5 +13,4 @@ angular.module('TodoApp').config(function($locationProvider, $routeProvider) {
 		templateURL: 'templates/register.html',
 		controller: 'RegisterController'
 	});
-
 });
