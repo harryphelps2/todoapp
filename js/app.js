@@ -1,16 +1,15 @@
-angular.module('TodoApp', ['ngRoute', 'RouteControllers']);
+angular.module("TodoApp", ['ngRoute', 'RouteControllers']);
 
-//define routes
-angular.module('TodoApp').config(function($locationProvider, $routeProvider) {
+angular.module('TodoApp').config(function($routeProvider, $locationProvider) {
 	$locationProvider.html5Mode(true);
+	$locationProvider.hashPrefix('');
 
-//when click on home pickup the home.html and bind to the the HomeController
 	$routeProvider.when('/', {
-		templateURL: 'templates/home.html',
+		templateUrl: 'templates/home.html',
 		controller: 'HomeController'
 	})
 	.when('/accounts/register' ,{
-		templateURL: 'templates/register.html',
+		templateUrl: 'templates/register.html',
 		controller: 'RegisterController'
 	});
 });
