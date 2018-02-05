@@ -20,3 +20,33 @@ angular.module('UserService', [])
 		//now go to controllers module
 		return UserAPIService;
 	});
+
+angular.module('TodoService', [])
+	.factory('TodoAPIService', function($http) {
+		//new object
+		TodoAPIService = {
+			//method that takes  the url, data ans token
+			getTodos: function(url, data, token) {
+				//create header variable
+				var header = "Authorization: JWT " +  token;
+				//return the todos, not sure where  the url comes from though
+				//for get method we need query params
+				//set annonymous object with {params:} Then add key value pairs as {username:data}
+				return $http.get(url, {params:{"username": data}}, header);
+			},
+			createTodo: function(url, data, token) {
+				var header = "Authorization: JWT " + token;
+				return $http.post(url, data, header);
+			},
+			editTodo: function(url, data, token) {
+				var header = "Authorization: JWT " + token;
+				return $http.put(url, data, header);
+			},
+			deleteTodo: function(url, token) {
+				var header = "Authorization: JWT " + token;
+				return $http.delete(url, token);
+			}
+		};
+		return TodoAPIService;
+	});
+
