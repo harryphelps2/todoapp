@@ -1,4 +1,4 @@
-angular.module("TodoApp", ['ngRoute', 'RouteControllers', 'UserService', 'angular-storage']);
+angular.module("TodoApp", ['ngRoute', 'RouteControllers', 'UserService', 'angular-storage', 'TodoService']);
 
 angular.module('TodoApp').config(function($routeProvider, $locationProvider) {
 	$locationProvider.html5Mode(true);
@@ -11,5 +11,9 @@ angular.module('TodoApp').config(function($routeProvider, $locationProvider) {
 	.when('/accounts/register' ,{
 		templateUrl: 'templates/register.html',
 		controller: 'RegisterController'
+	})
+	.when('/todo', {
+		templateUrl: 'templates/todo.html',
+		controller: 'TodoController'
 	});
 });
